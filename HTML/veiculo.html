@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CJ LUXURYCARS | Detalhes do Veículo</title>
+    
+    <!-- Script de autenticação (mantenha se existir no projeto) -->
+    <script src="../JS/auth.js"></script>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container logo-container">
+            <a href="index.html" class="logo">
+                CJ <span>LUXURYCARS</span>
+            </a>
+            <a href="index.html" class="btn-back">
+                &larr; Voltar
+            </a>
+        </div>
+    </header>
+
+    <main class="vehicle-page">
+        <!-- GALERIA -->
+        <section class="vehicle-gallery">
+            <div class="main-car-image">
+                <img id="vehicle-image" src="" alt="Carregando..." />
+            </div>
+            <div id="thumbnail-container" class="thumbnail-container"></div>
+        </section>
+
+        <!-- INFORMAÇÕES DO VEÍCULO -->
+        <section class="vehicle-content">
+            <p id="vehicle-category" class="eyebrow">Carregando...</p>
+            <h1 id="vehicle-title">Carregando...</h1>
+            <p id="vehicle-description" class="vehicle-description">Carregando informações...</p>
+
+            <div class="vehicle-specs">
+                <div>
+                    <span>Potência</span>
+                    <strong id="vehicle-power">—</strong>
+                </div>
+                <div>
+                    <span>Motor</span>
+                    <strong id="vehicle-engine">—</strong>
+                </div>
+                <div>
+                    <span>Câmbio</span>
+                    <strong id="vehicle-transmission">—</strong>
+                </div>
+            </div>
+
+            <a id="whatsapp-button" href="#" class="btn-whatsapp-large">
+                SOLICITAR ORÇAMENTO
+            </a>
+        </section>
+    </main>
+
+    <!-- Único script responsável por renderizar tudo -->
+    <script src="../JS/script.js"></script>
+</body>
+</html>

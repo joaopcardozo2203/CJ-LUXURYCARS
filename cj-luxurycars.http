@@ -1,0 +1,6 @@
+@cj_luxurycars_HostAddress = http://localhost:5015
+
+GET {{cj_luxurycars_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CJ LUXURYCARS | Garagem Exclusiva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-dark: #050608;
+            --bg-card: rgba(18, 22, 31, 0.95);
+            --gold-primary: #d4af37;
+            --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+            --gold-glow: 0 0 25px rgba(212, 175, 55, 0.25);
+            --border-gold: rgba(212, 175, 55, 0.4);
+            --text-muted: #8a90a2;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        body { 
+            background-color: var(--bg-dark); 
+            font-family: var(--font-body); 
+            color: #fff; 
+            min-height: 100vh; 
+            scroll-behavior: smooth; 
+        }
+
+        /* Header */
+        header {
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            background: rgba(5, 6, 8, 0.95);
+            backdrop-filter: blur(15px); 
+            border-bottom: 1px solid var(--border-gold); 
+            z-index: 100;
+            padding: 20px 50px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+
+        .brand-logo { 
+            font-family: var(--font-heading); 
+            font-size: 1.4rem; 
+            font-weight: 800; 
+            color: #fff; 
+            text-decoration: none; 
+        }
+
+        .brand-logo span { 
+            background: var(--gold-gradient); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+
+        nav { display: flex; align-items: center; gap: 20px; }
+        nav a { 
+            color: #fff; 
+            text-decoration: none; 
+            font-family: var(--font-heading); 
+            font-size: 0.75rem; 
+            letter-spacing: 2px; 
+            transition: 0.3s; 
+        }
+        nav a:hover { color: var(--gold-primary); }
+
+        .btn-login-nav {
+            padding: 8px 20px;
+            background: var(--gold-gradient);
+            color: #000;
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 0.75rem;
+            border-radius: 20px;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .btn-login-nav:hover {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Main Container */
+        .content-container { max-width: 1400px; margin: 0 auto; padding: 120px 20px 100px; }
+
+        .section-header { text-align: center; margin: 30px 0 40px; }
+        .section-header h2 { font-family: var(--font-heading); font-size: 2.2rem; letter-spacing: 2px; margin-bottom: 8px; }
+        .section-header p { color: var(--gold-primary); font-family: var(--font-heading); font-size: 0.8rem; letter-spacing: 3px; }
+
+        /* Search Filter */
+        .filter-container { display: flex; justify-content: center; margin-bottom: 40px; }
+        .filter-input { 
+            padding: 14px 25px; 
+            background: rgba(18, 22, 31, 0.9); 
+            border: 1px solid var(--border-gold); 
+            border-radius: 30px; 
+            color: #fff; 
+            font-family: var(--font-body); 
+            outline: none; 
+            width: 100%; 
+            max-width: 450px; 
+            text-align: center; 
+            font-size: 0.9rem; 
+        }
+
+        /* Cards Grid */
+        .cars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 35px; }
+        .car-card { 
+            background: var(--bg-card); 
+            border: 1px solid var(--border-gold); 
+            border-radius: 20px; 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+            transition: transform 0.3s, box-shadow 0.3s; 
+        }
+        .car-card:hover { transform: translateY(-8px); box-shadow: var(--gold-glow); }
+        
+        .card-img-wrapper { position: relative; width: 100%; height: 230px; overflow: hidden; }
+        .card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+        .car-info { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .car-info h3 { font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 8px; }
+        .car-price { 
+            background: var(--gold-gradient); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            font-family: var(--font-heading); 
+            font-weight: 800; 
+            font-size: 1.2rem; 
+            margin-bottom: 20px; 
+        }
+        
+        .btn-group { display: flex; gap: 10px; }
+        .btn-buy {
+            flex: 1; 
+            padding: 12px; 
+            text-align: center; 
+            background: var(--gold-gradient);
+            color: #000; 
+            border: none;
+            font-family: var(--font-heading); 
+            font-weight: 800;
+            border-radius: 8px; 
+            transition: 0.3s; 
+            font-size: 0.75rem; 
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+        .btn-buy:hover { box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
+        
+        .btn-specs { 
+            padding: 12px 16px; 
+            background: transparent; 
+            border: 1px solid var(--border-gold); 
+            color: var(--gold-primary); 
+            border-radius: 8px; 
+            font-family: var(--font-heading); 
+            font-size: 0.75rem; 
+            cursor: pointer; 
+            transition: 0.3s; 
+        }
+        .btn-specs:hover { background: rgba(212, 175, 55, 0.15); }
+
+        /* Modal Technical Specs */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); display: none; justify-content: center; align-items: center; z-index: 1000; padding: 20px; }
+        .modal-content { background: var(--bg-card); border: 1px solid var(--border-gold); padding: 40px; border-radius: 20px; max-width: 550px; width: 100%; position: relative; }
+        .close-modal { position: absolute; top: 15px; right: 20px; color: var(--gold-primary); font-size: 1.8rem; cursor: pointer; }
+        .modal-title { font-family: var(--font-heading); font-size: 1.5rem; color: var(--gold-primary); margin-bottom: 20px; }
+        .spec-list { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 0.9rem; }
+        .spec-item { background: rgba(5, 6, 8, 0.6); padding: 12px; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.15); }
+        .spec-item strong { display: block; font-family: var(--font-heading); color: var(--gold-primary); font-size: 0.75rem; }
+
+        footer { text-align: center; padding: 40px; border-top: 1px solid var(--border-gold); color: var(--text-muted); font-size: 0.8rem; font-family: var(--font-heading); margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="brand-logo">CJ <span>LUXURYCARS</span></a>
+        <nav>
+            <a href="#catalogo">CATÁLOGO</a>
+            <a href="login.html" class="btn-login-nav">FAZER LOGIN</a>
+        </nav>
+    </header>
+
+    <div class="content-container">
+
+        <div class="section-header">
+            <h2>GARAGEM PRINCIPAL</h2>
+            <p>VEÍCULOS DISPONÍVEIS PARA PRONTA ENTREGA</p>
+        </div>
+
+        <div class="filter-container">
+            <input type="text" id="searchInput" class="filter-input" placeholder="🔍 Buscar por modelo ou marca..." onkeyup="filtrarCarros()">
+        </div>
+
+        <div class="cars-grid" id="catalogo">
+            
+            <div class="car-card" data-title="Rolls-Royce Wraith">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1631295868223-63265b40d9e4?auto=format&fit=crop&w=800&q=80" alt="Rolls-Royce Wraith">
+                </div>
+                <div class="car-info">
+                    <div>
+                        <h3>ROLLS-ROYCE WRAITH</h3>
+                        <div class="car-price">R$ 7.500.000</div>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn-specs" onclick="abrirSpecs('Rolls-Royce Wraith', '6.6L V12 Twin-Turbo', '632 cv', '0-100 km/h em 4.4s', '250 km/h')">FICHA</button>
+                        <button class="btn-buy" onclick="iniciarNegociacao('Rolls-Royce Wraith')">COMPRAR</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card" data-title="Porsche 911 GT3 RS">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=800&q=80" alt="Porsche 911 GT3 RS">
+                </div>
+                <div class="car-info">
+                    <div>
+                        <h3>PORSCHE 911 GT3 RS</h3>
+                        <div class="car-price">R$ 3.800.000</div>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn-specs" onclick="abrirSpecs('Porsche 911 GT3 RS', '4.0L Boxer 6 Atmosférico', '525 cv', '0-100 km/h em 3.2s', '296 km/h')">FICHA</button>
+                        <button class="btn-buy" onclick="iniciarNegociacao('Porsche 911 GT3 RS')">COMPRAR</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card" data-title="Ferrari LaFerrari">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=800&q=80" alt="Ferrari LaFerrari">
+                </div>
+                <div class="car-info">
+                    <div>
+                        <h3>FERRARI LAFERRARI</h3>
+                        <div class="car-price">R$ 24.900.000</div>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn-specs" onclick="abrirSpecs('Ferrari LaFerrari', '6.3L V12 + KERS', '963 cv', '0-100 km/h em 2.6s', '350 km/h')">FICHA</button>
+                        <button class="btn-buy" onclick="iniciarNegociacao('Ferrari LaFerrari')">COMPRAR</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card" data-title="Range Rover Sport SVR">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80" alt="Range Rover Sport">
+                </div>
+                <div class="car-info">
+                    <div>
+                        <h3>RANGE ROVER SPORT SVR</h3>
+                        <div class="car-price">R$ 1.280.000</div>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn-specs" onclick="abrirSpecs('Range Rover Sport SVR', '5.0L V8 Supercharged', '575 cv', '0-100 km/h em 4.5s', '283 km/h')">FICHA</button>
+                        <button class="btn-buy" onclick="iniciarNegociacao('Range Rover Sport SVR')">COMPRAR</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card" data-title="Mercedes-AMG GT R PRO">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80" alt="Mercedes-AMG GT R">
+                </div>
+                <div class="car-info">
+                    <div>
+                        <h3>MERCEDES-AMG GT R PRO</h3>
+                        <div class="car-price">R$ 2.950.000</div>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn-specs" onclick="abrirSpecs('Mercedes-AMG GT R PRO', '4.0L V8 Biturbo', '585 cv', '0-100 km/h em 3.6s', '318 km/h')">FICHA</button>
+                        <button class="btn-buy" onclick="iniciarNegociacao('Mercedes-AMG GT R PRO')">COMPRAR</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="car-card" data-title="Lamborghini Aventador SVJ">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=800&q=80" alt="Lamborghini Aventador SVJ">
+                </div>
+                <div class="car-info">
+                    <div>
+                        <h3>LAMBORGHINI AVENTADOR SVJ</h3>
+                        <div class="car-price">R$ 8.900.000</div>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn-specs" onclick="abrirSpecs('Lamborghini Aventador SVJ', '6.5L V12 Atmosférico', '770 cv', '0-100 km/h em 2.8s', '352 km/h')">FICHA</button>
+                        <button class="btn-buy" onclick="iniciarNegociacao('Lamborghini Aventador SVJ')">COMPRAR</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal Technical Specs -->
+    <div class="modal-overlay" id="specsModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="fecharSpecs()">&times;</span>
+            <div class="modal-title" id="mTitle">Nome do Veículo</div>
+            <div class="spec-list">
+                <div class="spec-item"><strong>MOTORIZAÇÃO</strong><span id="mMotor">-</span></div>
+                <div class="spec-item"><strong>POTÊNCIA</strong><span id="mPotencia">-</span></div>
+                <div class="spec-item"><strong>ACELERAÇÃO</strong><span id="mAceleracao">-</span></div>
+                <div class="spec-item"><strong>VEL. MÁXIMA</strong><span id="mVelocidade">-</span></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 CJ LUXURYCARS. TODOS OS DIREITOS RESERVADOS.</p>
+    </footer>
+
+    <script>
+        // Bloqueia qualquer chamada de alert nativo do sistema
+        window.alert = function() { return true; };
+
+        function iniciarNegociacao(carro) {
+            const isLogged = localStorage.getItem('isLoggedIn') === 'true';
+
+            if (!isLogged) {
+                // Redireciona diretamente para o login sem emitir NENHUM alerta
+                window.location.href = "login.html";
+            } else {
+                window.location.href = "vip.html";
+            }
+        }
+
+        function filtrarCarros() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.car-card');
+            cards.forEach(card => {
+                const title = card.getAttribute('data-title').toLowerCase();
+                card.style.display = title.includes(query) ? 'flex' : 'none';
+            });
+        }
+
+        function abrirSpecs(nome, motor, potencia, aceleracao, velocidade) {
+            document.getElementById('mTitle').innerText = nome;
+            document.getElementById('mMotor').innerText = motor;
+            document.getElementById('mPotencia').innerText = potencia;
+            document.getElementById('mAceleracao').innerText = aceleracao;
+            document.getElementById('mVelocidade').innerText = velocidade;
+            document.getElementById('specsModal').style.display = 'flex';
+        }
+
+        function fecharSpecs() {
+            document.getElementById('specsModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

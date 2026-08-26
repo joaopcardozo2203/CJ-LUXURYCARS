@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Administrativo | CJ LUXURYCARS</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container logo-container">
+      <a href="index.html" class="logo">CJ <span>LUXURYCARS</span></a>
+      <span class="admin-badge">Painel de Controle</span>
+    </div>
+  </header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CJ LUXURYCARS</title>
+    
+    <!-- Script de proteção (deve vir no topo do head) -->
+    <script src="../JS/auth.js"></script>
+    
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+  <main class="container admin-container">
+    <div class="admin-header">
+      <h2>Orçamentos Recebidos (Firebase Realtime DB)</h2>
+      <a href="index.html" class="btn-back">← Voltar para o Site</a>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>WhatsApp</th>
+            <th>Veículo Escolhido</th>
+            <th>Data do Evento</th>
+            <th>Data do Pedido</th>
+          </tr>
+        </thead>
+        <tbody id="leads-table-body">
+          <tr>
+            <td colspan="5" class="loading-td">Carregando dados do Firebase...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p><strong>CJ LUXURYCARS</strong> | Sistema de Gestão Interna</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>

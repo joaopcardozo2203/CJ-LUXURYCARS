@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CJ LUXURYCARS | Login VIP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-dark: #050608;
+            --bg-card: rgba(18, 22, 31, 0.95);
+            --gold-primary: #d4af37;
+            --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+            --border-gold: rgba(212, 175, 55, 0.3);
+            --text-muted: #8a90a2;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            font-family: var(--font-body);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 50% 50%, #171f2c 0%, #050608 90%);
+        }
+
+        /* Container do Card de Login */
+        .login-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 20px;
+            padding: 45px 35px;
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        .login-card h2 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .login-card p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            color: var(--gold-primary);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            padding: 14px;
+            background: rgba(5, 6, 8, 0.8);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            color: #fff;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            outline: none;
+            transition: border 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn-access {
+            width: 100%;
+            padding: 14px;
+            background: var(--gold-gradient);
+            border: none;
+            border-radius: 8px;
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 0.85rem;
+            color: #000;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-access:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.75rem;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--gold-primary);
+        }
+
+        /* Modal Customizado VIP */
+        .custom-alert-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .custom-alert-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .custom-alert-box {
+            background: rgba(18, 22, 31, 0.98);
+            border: 1px solid rgba(212, 175, 55, 0.6);
+            box-shadow: 0 0 35px rgba(212, 175, 55, 0.25);
+            border-radius: 20px;
+            padding: 35px 30px;
+            text-align: center;
+            max-width: 420px;
+            width: 90%;
+            transform: scale(0.85);
+            transition: transform 0.3s ease;
+        }
+
+        .custom-alert-overlay.active .custom-alert-box {
+            transform: scale(1);
+        }
+
+        .custom-alert-icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+
+        .custom-alert-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 800;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .custom-alert-msg {
+            color: var(--text-muted);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .custom-alert-btn {
+            background: var(--gold-gradient);
+            border: none;
+            padding: 12px 32px;
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 0.8rem;
+            color: #000;
+            border-radius: 8px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .custom-alert-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <h2>ÁREA RESTRITA</h2>
+        <p>Insira suas credenciais de membro para desbloquear as compras e catálogo exclusivo.</p>
+
+        <form onsubmit="fazerLogin(event)">
+            <div class="form-group">
+                <label>E-MAIL VIP</label>
+                <input type="email" id="email" required placeholder="seu.email@exemplo.com">
+            </div>
+
+            <div class="form-group">
+                <label>SENHA DE ACESSO</label>
+                <input type="password" id="senha" required placeholder="••••••••">
+            </div>
+
+            <button type="submit" class="btn-access">ACESSAR GARAGEM VIP</button>
+        </form>
+
+        <a href="index.html" class="back-link">← Voltar para a loja principal</a>
+    </div>
+
+    <!-- Modal Customizado VIP -->
+    <div id="customAlertModal" class="custom-alert-overlay">
+        <div class="custom-alert-box">
+            <div class="custom-alert-title" id="customAlertTitle">ACESSO AUTORIZADO</div>
+            <div class="custom-alert-msg" id="customAlertMsg">Bem-vindo à Área VIP CJ LUXURYCARS.</div>
+            <button class="custom-alert-btn" onclick="fecharAlertaVIP()">CONTINUAR</button>
+        </div>
+    </div>
+
+    <script>
+        let callbackAposFechar = null;
+
+        function mostrarAlertaVIP(titulo, mensagem, callback = null) {
+            document.getElementById('customAlertTitle').innerText = titulo;
+            document.getElementById('customAlertMsg').innerText = mensagem;
+            callbackAposFechar = callback;
+            document.getElementById('customAlertModal').classList.add('active');
+        }
+
+        function fecharAlertaVIP() {
+            document.getElementById('customAlertModal').classList.remove('active');
+            if (callbackAposFechar) {
+                callbackAposFechar();
+                callbackAposFechar = null;
+            }
+        }
+// Sobrescreve o alert padrão do navegador
+window.alert = function(mensagem) {
+    mostrarAlertaVIP("SISTEMA VIP", mensagem);
+};
+        function fazerLogin(e) {
+            e.preventDefault();
+            
+            // Salva o estado de login
+            localStorage.setItem('isLoggedIn', 'true');
+
+            // Dispara o modal VIP customizado
+            mostrarAlertaVIP(
+                "ACESSO AUTORIZADO", 
+                "Bem-vindo à Área VIP CJ LUXURYCARS.", 
+                function() {
+                    window.location.href = "vip.html"; // Redireciona para a página VIP
+                }
+            );
+        }
+    </script>
+</body>
+</html>
