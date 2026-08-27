@@ -1,253 +1,438 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap");
 
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    --bg-dark: #07080a;
-    --bg-card: rgba(13, 15, 20, 0.88);
-    --gold-primary: #d4af37;
-    --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
-    --gold-glow: 0 0 25px rgba(212, 175, 55, 0.25);
-    --border-gold: rgba(212, 175, 55, 0.3);
-    --text-muted: #8a90a2;
-    --font-heading: 'Cinzel', serif;
-    --font-body: 'Montserrat', sans-serif;
+  --bg-dark: #07080a;
+  --bg-card: rgba(13, 15, 20, 0.92);
+  --gold-primary: #d4af37;
+  --gold-gradient: linear-gradient(
+    135deg,
+    #bf953f 0%,
+    #fcf6ba 25%,
+    #b38728 50%,
+    #fbf5b7 75%,
+    #aa771c 100%
+  );
+  --gold-glow: 0 0 25px rgba(212, 175, 55, 0.25);
+  --border-gold: rgba(212, 175, 55, 0.3);
+  --text-muted: #8a90a2;
+  --font-heading: "Cinzel", serif;
+  --font-body: "Montserrat", sans-serif;
 }
 
 body {
-    background: radial-gradient(circle at 50% 35%, #161a23 0%, #07080a 85%);
-    font-family: var(--font-body);
-    color: #ffffff;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    position: relative;
-    overflow-x: hidden;
+  background: radial-gradient(circle at 50% 35%, #161a23 0%, #07080a 85%);
+  font-family: var(--font-body);
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow-x: hidden;
 }
 
 .btn-back-top {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    color: var(--gold-primary);
-    text-decoration: none;
-    font-family: var(--font-heading);
-    font-size: 0.78rem;
-    letter-spacing: 2px;
-    padding: 10px 22px;
-    border: 1px solid var(--border-gold);
-    border-radius: 30px;
-    background: rgba(15, 17, 23, 0.7);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-    z-index: 10;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  color: var(--gold-primary);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  padding: 10px 22px;
+  border: 1px solid var(--border-gold);
+  border-radius: 30px;
+  background: rgba(15, 17, 23, 0.7);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  z-index: 10;
 }
 
 .btn-back-top:hover {
-    background: var(--gold-gradient);
-    color: #000000;
-    font-weight: 700;
-    box-shadow: var(--gold-glow);
+  background: var(--gold-gradient);
+  color: #000000;
+  font-weight: 700;
+  box-shadow: var(--gold-glow);
 }
 
 .auth-card-container {
-    width: 100%;
-    max-width: 440px;
-    background: var(--bg-card);
-    border: 1px solid var(--border-gold);
-    border-radius: 20px;
-    padding: 45px 35px;
-    backdrop-filter: blur(25px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), var(--gold-glow);
-    text-align: center;
+  width: 100%;
+  max-width: 440px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 20px;
+  padding: 45px 35px;
+  backdrop-filter: blur(25px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), var(--gold-glow);
+  text-align: center;
 }
 
 .brand-logo {
-    font-family: var(--font-heading);
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: #ffffff;
-    text-decoration: none;
-    letter-spacing: 2px;
-    display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 2px;
+  display: inline-block;
 }
 
 .brand-logo span {
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .brand-subtitle {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: 0.68rem;
-    color: var(--gold-primary);
-    letter-spacing: 3px;
-    margin-top: 6px;
-    margin-bottom: 30px;
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  color: var(--gold-primary);
+  letter-spacing: 3px;
+  margin-top: 6px;
+  margin-bottom: 30px;
 }
 
+/* Navegação por Abas */
 .tab-navigation {
-    display: flex;
-    border-bottom: 1px solid var(--border-gold);
-    margin-bottom: 30px;
+  display: flex;
+  border-bottom: 1px solid var(--border-gold);
+  margin-bottom: 30px;
 }
 
 .tab-btn {
-    flex: 1;
-    padding: 12px 0;
-    background: transparent;
-    border: none;
-    color: var(--text-muted);
-    font-family: var(--font-heading);
-    font-size: 0.85rem;
-    letter-spacing: 2px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
+  flex: 1;
+  padding: 12px 0;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .tab-btn.active-tab {
-    color: var(--gold-primary);
-    font-weight: 700;
+  color: var(--gold-primary);
+  font-weight: 700;
 }
 
 .tab-btn.active-tab::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--gold-gradient);
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gold-gradient);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
 }
 
+/* Formulários */
 .auth-form {
-    display: none;
-    flex-direction: column;
-    gap: 20px;
-    text-align: left;
+  display: none;
+  flex-direction: column;
+  gap: 18px;
+  text-align: left;
 }
 
 .auth-form.active-form {
-    display: flex;
+  display: flex;
 }
 
 .input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .input-group label {
-    font-size: 0.72rem;
-    color: var(--gold-primary);
-    font-family: var(--font-heading);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    font-weight: 600;
+  font-size: 0.7rem;
+  color: var(--gold-primary);
+  font-family: var(--font-heading);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 .input-group input {
-    width: 100%;
-    padding: 14px 18px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border-gold);
-    border-radius: 10px;
-    color: #ffffff;
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    outline: none;
-    transition: all 0.3s ease;
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-gold);
+  border-radius: 10px;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.3s ease;
 }
 
 .input-group input::placeholder {
-    color: #525866;
+  color: #525866;
 }
 
 .input-group input:focus {
-    border-color: var(--gold-primary);
-    background: rgba(212, 175, 55, 0.06);
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  border-color: var(--gold-primary);
+  background: rgba(212, 175, 55, 0.06);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
 }
 
-.forgot-pass {
-    text-align: right;
-    margin-top: -10px;
+/* Container de Senha com Olho */
+.password-container {
+  position: relative;
+  width: 100%;
 }
 
-.forgot-pass a {
-    color: var(--text-muted);
-    font-size: 0.78rem;
-    text-decoration: none;
-    transition: color 0.3s ease;
+.password-container input {
+  padding-right: 48px;
 }
 
-.forgot-pass a:hover {
-    color: var(--gold-primary);
+.toggle-password-btn {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  transition: color 0.3s ease;
+}
+
+.toggle-password-btn:hover {
+  color: var(--gold-primary);
+}
+
+.toggle-password-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.toggle-password-btn .icon-eye-off {
+  display: none;
+}
+
+.toggle-password-btn.visible .icon-eye-open {
+  display: none;
+}
+
+.toggle-password-btn.visible .icon-eye-off {
+  display: block;
 }
 
 .btn-gold-submit {
-    width: 100%;
-    padding: 16px 0;
-    margin-top: 10px;
-    background: var(--gold-gradient);
-    border: none;
-    border-radius: 30px;
-    color: #000000;
-    font-family: var(--font-heading);
-    font-size: 0.88rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
-    transition: all 0.3s ease;
+  width: 100%;
+  padding: 16px 0;
+  margin-top: 10px;
+  background: var(--gold-gradient);
+  border: none;
+  border-radius: 30px;
+  color: #000000;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+  transition: all 0.3s ease;
 }
 
 .btn-gold-submit:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
-    filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+  filter: brightness(1.1);
 }
 
-.form-footer-text {
-    text-align: center;
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    margin-top: 15px;
+/* Modal VIP Customizado */
+.custom-alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
-.form-footer-text a {
-    color: var(--gold-primary);
-    text-decoration: none;
-    font-weight: 600;
+.custom-alert-overlay.active {
+  opacity: 1;
+  pointer-events: all;
 }
 
-.form-footer-text a:hover {
-    text-decoration: underline;
+.custom-alert-box {
+  background: rgba(18, 22, 31, 0.98);
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  box-shadow: 0 0 35px rgba(212, 175, 55, 0.25);
+  border-radius: 20px;
+  padding: 35px 30px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  transform: scale(0.85);
+  transition: transform 0.3s ease;
 }
 
+.custom-alert-overlay.active .custom-alert-box {
+  transform: scale(1);
+}
+
+.custom-alert-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 800;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.custom-alert-msg {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.custom-alert-btn {
+  background: var(--gold-gradient);
+  border: none;
+  padding: 12px 30px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: #000;
+  border-radius: 8px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.custom-alert-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+/* ==========================================================================
+   REGRAS DE RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+
+/* Tablets / Telas Médias (Até 768px) */
+@media (max-width: 768px) {
+  body {
+    padding: 30px 15px;
+  }
+
+  .btn-back-top {
+    top: 20px;
+    left: 20px;
+    padding: 8px 18px;
+    font-size: 0.72rem;
+  }
+}
+
+/* Dispositivos Móveis Padrão (Até 500px) */
 @media (max-width: 500px) {
-    .btn-back-top {
-        position: static;
-        display: inline-block;
-        margin-bottom: 25px;
-    }
-    body {
-        flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 40px;
-    }
-    .auth-card-container {
-        padding: 30px 20px;
-    }
+  body {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 15px;
+  }
+
+  .btn-back-top {
+    position: relative;
+    top: auto;
+    left: auto;
+    align-self: flex-start;
+    margin-bottom: 20px;
+    font-size: 0.7rem;
+  }
+
+  .auth-card-container {
+    padding: 30px 20px;
+    border-radius: 16px;
+  }
+
+  .brand-logo {
+    font-size: 1.35rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.6rem;
+    margin-bottom: 22px;
+  }
+
+  .tab-btn {
+    font-size: 0.75rem;
+    padding: 10px 0;
+  }
+
+  .input-group input {
+    padding: 12px 14px;
+    font-size: 0.85rem;
+  }
+
+  .btn-gold-submit {
+    padding: 14px 0;
+    font-size: 0.8rem;
+  }
+
+  .custom-alert-box {
+    padding: 25px 18px;
+    border-radius: 14px;
+  }
+
+  .custom-alert-title {
+    font-size: 1.05rem;
+  }
+
+  .custom-alert-msg {
+    font-size: 0.8rem;
+  }
+}
+
+/* Telas Muito Pequenas (Até 360px - ex: Galaxy Fold, iPhones antigos) */
+@media (max-width: 360px) {
+  .auth-card-container {
+    padding: 22px 14px;
+  }
+
+  .brand-logo {
+    font-size: 1.15rem;
+  }
+
+  .tab-btn {
+    letter-spacing: 1px;
+    font-size: 0.7rem;
+  }
+
+  .input-group label {
+    font-size: 0.65rem;
+  }
 }
