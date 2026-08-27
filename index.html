@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-     <head>
-    <head>
-    <meta charset="UTF-8">
-    <title>CJ LUXURYCARS</title>>
-    <link rel="icon" type="image/png" href="/cj-luxurycars/imagens/logo.png">
-</head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CJ LUXURYCARS | Garagem Exclusiva</title>
+    
+    <link rel="icon" type="image/png" href="imagens/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
 
+    <!-- CABEÇALHO COM LOGO DOURADA -->
     <header>
-        <a href="index.html" class="brand-logo">CJ <span>LUXURYCARS</span></a>
+        <a href="index.html" class="brand-logo">
+            <span class="logo-cj">CJ</span> <span class="logo-gold">LUXURYCARS</span>
+        </a>
         <nav>
             <a href="#catalogo">CATÁLOGO</a>
-            <a href="login.html" class="btn-login-nav">FAZER LOGIN</a>
+            <a href="login.html" class="btn-gold-pill nav-btn">FAZER LOGIN</a>
         </nav>
     </header>
 
@@ -33,6 +33,7 @@
             <input type="text" id="searchInput" class="filter-input" placeholder="🔍 Buscar por modelo ou marca..." onkeyup="filtrarCarros()">
         </div>
 
+        <!-- GRADE DE CARROS -->
         <div class="cars-grid" id="catalogo">
             
             <div class="car-card" data-title="Rolls-Royce Wraith">
@@ -46,7 +47,7 @@
                     </div>
                     <div class="btn-group">
                         <button class="btn-specs" onclick="abrirSpecs('Rolls-Royce Wraith', '6.6L V12 Twin-Turbo', '632 cv', '0-100 km/h em 4.4s', '250 km/h')">FICHA</button>
-                        <button class="btn-buy" onclick="iniciarNegociacao('Rolls-Royce Wraith')">COMPRAR</button>
+                        <button class="btn-gold-pill" onclick="iniciarNegociacao('Rolls-Royce Wraith')">COMPRAR</button>
                     </div>
                 </div>
             </div>
@@ -62,7 +63,7 @@
                     </div>
                     <div class="btn-group">
                         <button class="btn-specs" onclick="abrirSpecs('Porsche 911 GT3 RS', '4.0L Boxer 6 Atmosférico', '525 cv', '0-100 km/h em 3.2s', '296 km/h')">FICHA</button>
-                        <button class="btn-buy" onclick="iniciarNegociacao('Porsche 911 GT3 RS')">COMPRAR</button>
+                        <button class="btn-gold-pill" onclick="iniciarNegociacao('Porsche 911 GT3 RS')">COMPRAR</button>
                     </div>
                 </div>
             </div>
@@ -78,7 +79,7 @@
                     </div>
                     <div class="btn-group">
                         <button class="btn-specs" onclick="abrirSpecs('Ferrari LaFerrari', '6.3L V12 + KERS', '963 cv', '0-100 km/h em 2.6s', '350 km/h')">FICHA</button>
-                        <button class="btn-buy" onclick="iniciarNegociacao('Ferrari LaFerrari')">COMPRAR</button>
+                        <button class="btn-gold-pill" onclick="iniciarNegociacao('Ferrari LaFerrari')">COMPRAR</button>
                     </div>
                 </div>
             </div>
@@ -94,7 +95,7 @@
                     </div>
                     <div class="btn-group">
                         <button class="btn-specs" onclick="abrirSpecs('Range Rover Sport SVR', '5.0L V8 Supercharged', '575 cv', '0-100 km/h em 4.5s', '283 km/h')">FICHA</button>
-                        <button class="btn-buy" onclick="iniciarNegociacao('Range Rover Sport SVR')">COMPRAR</button>
+                        <button class="btn-gold-pill" onclick="iniciarNegociacao('Range Rover Sport SVR')">COMPRAR</button>
                     </div>
                 </div>
             </div>
@@ -110,7 +111,7 @@
                     </div>
                     <div class="btn-group">
                         <button class="btn-specs" onclick="abrirSpecs('Mercedes-AMG GT R PRO', '4.0L V8 Biturbo', '585 cv', '0-100 km/h em 3.6s', '318 km/h')">FICHA</button>
-                        <button class="btn-buy" onclick="iniciarNegociacao('Mercedes-AMG GT R PRO')">COMPRAR</button>
+                        <button class="btn-gold-pill" onclick="iniciarNegociacao('Mercedes-AMG GT R PRO')">COMPRAR</button>
                     </div>
                 </div>
             </div>
@@ -126,7 +127,7 @@
                     </div>
                     <div class="btn-group">
                         <button class="btn-specs" onclick="abrirSpecs('Lamborghini Aventador SVJ', '6.5L V12 Atmosférico', '770 cv', '0-100 km/h em 2.8s', '352 km/h')">FICHA</button>
-                        <button class="btn-buy" onclick="iniciarNegociacao('Lamborghini Aventador SVJ')">COMPRAR</button>
+                        <button class="btn-gold-pill" onclick="iniciarNegociacao('Lamborghini Aventador SVJ')">COMPRAR</button>
                     </div>
                 </div>
             </div>
@@ -134,44 +135,62 @@
         </div>
     </div>
 
-    <!-- Modal Technical Specs -->
+    <!-- MODAL FICHA TÉCNICA (LAYOUT 2x2) -->
     <div class="modal-overlay" id="specsModal">
         <div class="modal-content">
             <span class="close-modal" onclick="fecharSpecs()">&times;</span>
             <div class="modal-title" id="mTitle">Nome do Veículo</div>
-            <div class="spec-list">
-                <div class="spec-item"><strong>MOTORIZAÇÃO</strong><span id="mMotor">-</span></div>
-                <div class="spec-item"><strong>POTÊNCIA</strong><span id="mPotencia">-</span></div>
-                <div class="spec-item"><strong>ACELERAÇÃO</strong><span id="mAceleracao">-</span></div>
-                <div class="spec-item"><strong>VEL. MÁXIMA</strong><span id="mVelocidade">-</span></div>
+            
+            <div class="spec-grid">
+                <div class="spec-box">
+                    <span class="spec-label">MOTORIZAÇÃO</span>
+                    <span class="spec-val" id="mMotor">-</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">POTÊNCIA</span>
+                    <span class="spec-val" id="mPotencia">-</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">ACELERAÇÃO</span>
+                    <span class="spec-val" id="mAceleracao">-</span>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">VEL. MÁXIMA</span>
+                    <span class="spec-val" id="mVelocidade">-</span>
+                </div>
             </div>
         </div>
     </div>
-<!-- AVISO DE SITE ACADÊMICO / ESTUDO (FORA DO VIP) -->
-<div style="background-color: #080808; border-top: 1px solid rgba(212, 175, 55, 0.2); padding: 20px 15px; text-align: center;">
-    <div style="max-width: 1000px; margin: 0 auto;">
-        <span style="color: #d4af37; font-size: 0.75rem; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 6px;">
-            ⚠️ AVISO INSTITUCIONAL
-        </span>
-        <p style="color: #888888; font-size: 0.8rem; margin: 0; line-height: 1.5; font-weight: 300;">
-            Este website foi desenvolvido **exclusivamente para fins acadêmicos e demonstrativos** (projeto de estudo de desenvolvimento web e programação). 
-            A <strong style="color: #aaa;">CJ LUXURYCARS</strong> é uma marca fictícia; <strong>não realizamos a venda, locação ou intermediação de nenhum dos veículos exibidos neste catálogo</strong>.
-        </p>
+
+    <!-- AVISO INSTITUCIONAL -->
+    <div style="background-color: #040405; border-top: 1px solid rgba(212, 175, 55, 0.2); padding: 20px 15px; text-align: center;">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <span style="color: #d4af37; font-size: 0.75rem; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 6px;">
+                ⚠️ AVISO INSTITUCIONAL
+            </span>
+            <p style="color: #888888; font-size: 0.8rem; margin: 0; line-height: 1.5; font-weight: 300;">
+                Este website foi desenvolvido <strong>exclusivamente para fins acadêmicos e demonstrativos</strong>. 
+                A <strong style="color: #aaa;">CJ LUXURYCARS</strong> é uma marca fictícia; <strong>não realizamos a venda, locação ou intermediação de veículos</strong>.
+            </p>
+        </div>
     </div>
-</div>
+
     <footer>
         <p>&copy; 2026 CJ LUXURYCARS. TODOS OS DIREITOS RESERVADOS.</p>
+        <p>
+        criado por Carlos Henrique de Oliveira Griep e João Pedro Vieira Cardozo
+        na turma técnico em desenvolvimento de sistemas no Senai Mecatrônoca em
+        Caxias do Sul-RS
+      </p>
     </footer>
 
+    <script src="JS/script.js"></script>
     <script>
-        // Bloqueia qualquer chamada de alert nativo do sistema
         window.alert = function() { return true; };
 
         function iniciarNegociacao(carro) {
             const isLogged = localStorage.getItem('isLoggedIn') === 'true';
-
             if (!isLogged) {
-                // Redireciona diretamente para o login sem emitir NENHUM alerta
                 window.location.href = "login.html";
             } else {
                 window.location.href = "vip.html";
